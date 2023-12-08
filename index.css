@@ -1,0 +1,88 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --progressbar-bkgd: lightgrey;
+  --start: red;
+  --middle: blue;
+  --finish: green;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.container {
+  width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#image-container {
+  margin-top: 1em;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2em;
+}
+
+#slider-image {
+  width: 100%;
+  height: auto;
+}
+
+.progress-bar {
+  width: 100%;
+  background: var(--progressbar-bkgd);
+  height: 40px;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.progress-wrapper {
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden; /* Ensure the progress bar stays within the wrapper */
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 0;
+    background: var(--start);
+  }
+
+  40% {
+    width: 50%;
+    background: var(--middle);
+  }
+
+  80%,
+  100% {
+    width: 100%;
+    background: var(--finish);
+  }
+}
+
+.progress {
+  height: 100%;
+  border-radius: 30px;
+  padding: 0;
+  animation: progressAnimation 6s linear infinite;
+}
+
+footer {
+  margin-top: 2em;
+}
